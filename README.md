@@ -94,7 +94,7 @@ In general, when you want to make some modification take a look to the UML diagr
 There are three autoloaders in this project, that you must call at the beginning of the webhook file (`hook.php`, in this project):
 - `vendor/autoload.php` is the one that uploads the Composer's libraries
 - `/project_autoloader.php` is the one that uploads all the classes of the project. The project must meet the [PSR-4 standard](https://www.php-fig.org/psr/psr-4/) (in the definition of the namespaces, for example) to make the autoloader work. The `Psr4AutoloaderClass` is the class to handle the definition of the standard autoloader
-- `control/processes_autoloader.php` is the one to upload the classes of processes, handled differently from the others. [In this file](control/PROCESSES.md) I explain why it has to be different.
+- `control/processes_autoloader.php` is the one to upload the classes of processes, handled differently from the others. [In this file](control/PROCESSES_README.md) I explain why it has to be different.
 
 With this three autoloaders every class (created following the rules) will be automatically uploaded during the run-time. </br>
 
@@ -207,4 +207,4 @@ The `UserAuthorization` class method `verifyAuthorization()` will execute the `r
 
 <!-- TOC --><a name="about-processes"></a>
 ### About processes
-An exhaustive description of processes is into [control/processes.md](control/PROCESSES.md) file. </br>
+An exhaustive description of processes is into [control/processes.md](control/PROCESSES_README.md) file. </br>

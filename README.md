@@ -3,7 +3,7 @@
 
 <!-- omit in toc -->
 ## ❓ What is this project
-This is a set of folders and PHP files to start a generic Telegram Bot project. In the following README will be explained the technical structure and the system of communication between classes.
+This is a set of folders and PHP files to start a generic Telegram Bot project. In the following README will be explained the technical structure and the logic behind the communication between classes.
 
 <!-- omit in toc -->
 ## 📖 Documentation
@@ -36,7 +36,7 @@ This is a UML diagram that explain the structure of the classes:
 
 <!-- TOC --><a name="folder-structure"></a>
 ## Folder structure
-For the structure i've been ispirated to the MVC architecture logic.<br>
+For the structure i've been ispirated to the MVC architecture logic.
 
 `config/` contain configuration files and classes to handle it;<br>
 `control/` contain classes that handles the processes of the bot;<br>

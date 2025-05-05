@@ -10,7 +10,7 @@ This is a set of folders and PHP files to start a generic Telegram Bot project. 
 ## 📖 Documentation
 The code contains a lot of useful comments, so the information about every specific class is inside the code. Here I will only describe some parts of the project.
 
-This is a UML diagram that explain the structure of the classes:
+This is a UML diagram that explains grafically the structure of the classes:
 
 ![uml_diagram_of_project](docs/bot-project-uml.png)
 

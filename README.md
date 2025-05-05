@@ -208,5 +208,4 @@ $_Bot->sendMessage([
 
 <!-- TOC --><a name="about-processes"></a>
 ## About processes
-An exhaustive description of processes is into [control/processes.md](control/processes.md) file. There is also an article on my blog [here]()
-<br>
+An exhaustive description of processes is into [control/processes.md](control/PROCESSES.md) file. </br>

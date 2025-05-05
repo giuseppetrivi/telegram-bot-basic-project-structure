@@ -1,13 +1,13 @@
-(Sorry for my not perfect english)
+<!-- omit in toc -->
+# 🪙 crypto-notification-telegram-bot
 
 <!-- omit in toc -->
-# What is this?
-This is a set of folders and classes to start a generic Telegram bot project.
-<br>
+## ❓What is this project
+This is a set of folders and PHP files to start a generic Telegram Bot project. In the following README will be explained the technical structure and the system of communication between classes.
 
 <!-- omit in toc -->
-# Documentation
-The code is commented a lot, so the information about every specific class is into the code. Here I will describe only some parts of the project.
+## 📖 Documentation
+The code contains a lot of useful comments, so the information about every specific class is inside the code. Here I will only describe some parts of the project.
 
 This is a UML diagram that explain the structure of the classes:
 

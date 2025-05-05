@@ -9,7 +9,7 @@ This is a set of folders and PHP files to start a generic Telegram Bot project. 
 ## 📖 Documentation
 The code contains a lot of useful comments, so the information about every specific class is inside the code. Here I will only describe some parts of the project.
 
-This is a UML diagram that explains grafically the structure of the classes:
+This is a UML diagram that explains graphically the structure of the classes:
 
 ![uml_diagram_of_project](docs/bot-project-uml.png)
 
@@ -40,11 +40,11 @@ For the logic of the architecture and the structure of the project I was inspire
 - `config/` contains configuration files and classes to handle it </br>
 - `control/` contains classes that handles the processes of the bot </br>
 - `docs/` contains some useful documents about the project </br>
-- `entities/` contains classes that comunicate with external services (like APIs or a database), or classes that implements some specific objects </br>
+- `entities/` contains classes that communicate with external services (like APIs or a database), or classes that implements some specific objects </br>
 - `exceptions/` contains custom exceptions </br>
-- `logs/` folder to store logs (need to be setted by the server as a default class) </br>
+- `logs/` folder to store logs (need to be set by the server as a default class) </br>
 - `vendor/` contains [Composer](https://getcomposer.org/)'s downloaded libraries </br>
-- `view/` contains classes to handle the messages shown to the final user on the bot and everything about the "UI" of the bot (messages, emoticons, buttons. ecc...) </br>
+- `view/` contains classes to handle the messages shown to the final user on the bot and everything about the "UI" of the bot (messages, emoticons, buttons, etc...) </br>
 
 You can see the folders `entities/`, `view/` and `control/processes/` as the MVC folders. </br>
 
@@ -66,7 +66,7 @@ In this example base project I installed two libraries:
 - [`telegram-bot-sdk`](https://github.com/irazasyed/telegram-bot-sdk): an unofficial Telegram Bot API SDK
 - [`meekrodb`](https://github.com/SergeyTsalkov/meekrodb): a simple library to handle database MySQL calls
 
-You can change this libraries with others with the same purpose (interface with Telegam Bot API methods and interface with database), but I recommend anyway to use some library to handle this two fundamental aspects of the structure.
+You can change these libraries with others with the same purpose (interface with Telegam Bot API methods and interface with database), but I recommend anyway to use some library to handle this two fundamental aspects of the structure.
 
 <!-- TOC --><a name="class-telegrambotapicustom"></a>
 #### Class `TelegramBotApiCustom`
@@ -82,25 +82,25 @@ You can delete:
 You can modify:
 - `entities/tgbotapi_custom_interface/`: you can modify and personalize all classes
 - `entities/ProcessHandler.php`: you should modify the methods based on your database structure
-- `entities/User.php`: you should modify the costructor and the attributes based on your database structure
+- `entities/User.php`: you should modify the constructor and the attributes based on your database structure
 - `hook.php`
   
-Remind that when you modify `User` and `TelegramBotApiCustom` classes you need to check the `AbstractProcess` class, that use them as aggregate classes.
+Remember that when you modify `User` and `TelegramBotApiCustom` classes you need to check the `AbstractProcess` class, that use them as aggregate classes.
 
 In general, when you want to make some modification take a look to the UML diagram. </br>
 
 <!-- TOC --><a name="autoloaders"></a>
 ### Autoloaders
 There are three autoloaders in this project, that you must call at the beginning of the webhook file (`hook.php`, in this project):
-- `vendor/autoload.php` is the one that uploads the Composer's libraries
-- `/project_autoloader.php` is the one that uploads all the classes of the project. The project must meet the [PSR-4 standard](https://www.php-fig.org/psr/psr-4/) (in the definition of the namespaces, for example) to make the autoloader work. The `Psr4AutoloaderClass` is the class to handle the definition of the standard autoloader
+- `vendor/autoload.php` is the one that loads the Composer's libraries
+- `/project_autoloader.php` is the one that loads all the classes of the project. The project must meet the [PSR-4 standard](https://www.php-fig.org/psr/psr-4/) (in the definition of the namespaces, for example) to make the autoloader work. The `Psr4AutoloaderClass` is the class to handle the definition of the standard autoloader
 - `control/processes_autoloader.php` is the one to upload the classes of processes, handled differently from the others. [In this file](control/PROCESSES_README.md) I explain why it has to be different.
 
-With this three autoloaders every class (created following the rules) will be automatically uploaded during the run-time. </br>
+With these three autoloaders every class (created following the rules) will be automatically uploaded during the run-time. </br>
 
 <!-- TOC --><a name="class-configurationinfo"></a>
 ### Class `ConfigurationInfo`
-The `ConfigurationInfo` class is a [singleton class](https://en.wikipedia.org/wiki/Singleton_pattern) tho handle the informations into the file `config.json`. </br>
+The `ConfigurationInfo` class is a [singleton class](https://en.wikipedia.org/wiki/Singleton_pattern) to handle the informations into the file `config.json`. </br>
 You can change the `config.json` file as you wish and write the class methods accordingly.
 
 In my personal `config.json` file there are two identical set of attributes, but one is for testing and develop time and the other one is for production time:
@@ -134,7 +134,7 @@ $_SystemConfig = ConfigurationInfo::setInstance();
 
 <!-- TOC --><a name="the-hookphp-file"></a>
 ### The `hook.php` file
-This file is an example of a standard file to be used as "access point" of the Telegram Bot requests. The URL of this file should be setted as webhook of the Telegram Bot (with the API call [`setWebhook`](https://core.telegram.org/bots/api#setwebhook)). </br>
+This file is an example of a standard file to be used as "access point" of the Telegram Bot requests. The URL of this file should be set as webhook of the Telegram Bot (with the API call [`setWebhook`](https://core.telegram.org/bots/api#setwebhook)). </br>
 
 <!-- TOC --><a name="class-baseentity"></a>
 ### Class `BaseEntity`
@@ -159,8 +159,8 @@ The `MenuOptions` class is a class of constants only, which represents the bot's
 
 The `ViewWrapper` class is similar to `BaseEntity` class. This class has a defined `__callStatic` magic method which, for every "get" static call of the sub-classes (`Keyboards` and `InlineKeyboards`), returns the formatted buttons to set as argument into `reply_markup` parameter, into a `sendMessage` request, for example. </br>
 
-The buttons can be defined statically as public constant into the subclasses (is described into the specific file of the classes how do this). </br>
-For `Keyboards` and `InlineKeyboards` are used, respectively, `KeyboardsTrait` and `InlineKeyboardsTrait`, two [traits](https://www.php.net/manual/en/language.oop5.traits.php#:~:text=Traits%20are%20a%20mechanism%20for,living%20in%20different%20class%20hierarchies.) which offer the function to create the keyboard an the inline keyboard from an array:
+The buttons can be defined statically as public constant into the subclasses (is described into the specific file of the classes how to do this). </br>
+For `Keyboards` and `InlineKeyboards` are used, respectively, `KeyboardsTrait` and `InlineKeyboardsTrait`, two [traits](https://www.php.net/manual/en/language.oop5.traits.php#:~:text=Traits%20are%20a%20mechanism%20for,living%20in%20different%20class%20hierarchies.) which offer the function to create the keyboard and the inline keyboard from an array:
 ```php
 // (into Keyboards class)
   public const MAIN_MENU = [
@@ -178,7 +178,7 @@ $_Bot->sendMessage([
 
 <!-- TOC --><a name="authorization-rules"></a>
 ### Authorization rules
-When a Telegram user send messages to the bot it might be useful to check some properties, for example if he is able to access or his legal permit has expired. These are the **rules**. Into the `entities/authorization_rules/` folder there are the files which handles the rules. </br>
+When a Telegram user sends messages to the bot it might be useful to check some properties, for example if he is able to access or his legal permit has expired. These are the **rules**. Into the `entities/authorization_rules/` folder there are the files which handle the rules. </br>
 
 For each of these properties you can create a new class that extends the `Rule` base class (as, in the example, `CheckIfIsActiveRule` and `CheckIfIsTesterRule`) and define the `rule()` method, as in the example below:
 ```php

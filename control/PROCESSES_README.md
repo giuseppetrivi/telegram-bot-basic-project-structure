@@ -22,6 +22,7 @@
 <!-- TOC end -->
 </br>
 
+---
 <!-- TOC --><a name="underlying-logic"></a>
 ## Underlying logic
 
@@ -53,6 +54,7 @@ The definition of the processes, which will then turn into the definitions of th
 
 <sub><sup>(*) You could also use a similar structure, such as a json file or something else. However, a table in a database seems like the most convenient way to handle it to me. Obviously, however, it always depends on the project specifications.</sup></sub>
 
+---
 <!-- TOC --><a name="abstractprocess-class-core-of-the-management"></a>
 ## `AbstractProcess` class: the core of the management
 The `AbstractProcess` class has only one publicly usable function, namely `codeToRun()` which is divided internally into 3 parts:
@@ -124,6 +126,7 @@ $this->setNextProcess($this->getPreviousProcess());
 
 However, this method will take the current process and remove the last part of the process path, resulting in the name of the process preceding the current process.
 
+---
 <!-- TOC --><a name="abstractprocess-class-dependencies"></a>
 ## `AbstractProcess` class: dependencies
 The constructor of the `AbstractProcess` class asks for two parameters:

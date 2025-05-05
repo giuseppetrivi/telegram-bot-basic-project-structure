@@ -5,7 +5,6 @@
 ## ❓ What is this project
 This is a set of folders and PHP files to start a generic Telegram Bot project. In the following README will be explained the technical structure and the logic behind the communication between classes.
 
----
 <!-- omit in toc -->
 ## 📖 Documentation
 The code contains a lot of useful comments, so the information about every specific class is inside the code. Here I will only describe some parts of the project.

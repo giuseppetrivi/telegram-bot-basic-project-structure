@@ -38,8 +38,8 @@ This is a UML diagram that explain the structure of the classes:
 ## Folder structure
 For the structure i've been ispirated to the MVC architecture logic.
 
-`config/` contain configuration files and classes to handle it;<br>
-`control/` contain classes that handles the processes of the bot;<br>
+`config/` contain configuration files and classes to handle it;
+`control/` contain classes that handles the processes of the bot;
 `docs/` contain some useful documents about the project;<br>
 `entities/` contain classes that comunicate with external services (like APIs or a database), or classes that implements some specific objects;<br>
 `exceptions/` contain custom exceptions;<br>

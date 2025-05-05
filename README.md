@@ -26,9 +26,9 @@ This is a UML diagram that explain the structure of the classes:
 - [Autoloaders](#autoloaders)
 - [Class `ConfigurationInfo`](#class-configurationinfo)
 - [The `hook.php` file](#the-hookphp-file)
-- [Authorization rules](#authorization-rules)
 - [Class `BaseEntity`](#class-baseentity)
 - [Classes of `view/` folder](#classes-of-view-folder)
+- [Authorization rules](#authorization-rules)
 - [About processes](#about-processes)
 
 <!-- TOC end -->
@@ -137,35 +137,6 @@ $_SystemConfig = ConfigurationInfo::setInstance();
 ### The `hook.php` file
 This file is an example of a standard file to be used as "access point" of the Telegram Bot requests. The URL of this file should be setted as webhook of the Telegram Bot (with the API call [`setWebhook`](https://core.telegram.org/bots/api#setwebhook)). </br>
 
-<!-- TOC --><a name="authorization-rules"></a>
-### Authorization rules
-When a Telegram user send messages to the bot it might be useful to check some properties, for example if he is able to access or his legal permit has expired. These are the **rules**. Into the `entities/authorization_rules/` folder there are the files which handles the rules. </br>
-
-For each of these properties you can create a new class that extends the `Rule` base class (as, in the example, `CheckIfIsActiveRule` and `CheckIfIsTesterRule`) and define the `rule()` method, as in the example below:
-```php
-// (for example) The bot can be used only from users activated from the admin
-class CheckIfIsActiveRule extends Rule {
-
-  public function rule() {
-    if ($this->getUser()->isActive()) {
-      return true;
-    }
-    return false;
-  }
-
-}
-```
-
-Then you have to add the instances of the classes you've created into the `private function rulesToAdd()`, into the `UserAuthorization` class:
-```php
-private function rulesToAdd() {
-  $this->addRule(new CheckIfIsActiveRule($this->getUser(), $this->getSystemConfig()));
-  $this->addRule(new CheckIfIsTesterRule($this->getUser(), $this->getSystemConfig()));
-}
-```
-
-The `UserAuthorization` class method `verifyAuthorization()` will execute the `rule()` method of every instance you have added into `rulesToAdd()` method. So you can verify all the necessary rules and also get specific error messages for each one, in case some of the rules doesn't pass the check. </br>
-
 <!-- TOC --><a name="class-baseentity"></a>
 ### Class `BaseEntity`
 This class, by its `__call` magic method, provides the getters and setters of every attribute into the subclasses. Every new "entity" class should extend this class.
@@ -204,8 +175,37 @@ $_Bot->sendMessage([
   'reply_markup' => Keyboards::getMainMenu()
 ]);
 ```
-<br>
+</br>
+
+<!-- TOC --><a name="authorization-rules"></a>
+### Authorization rules
+When a Telegram user send messages to the bot it might be useful to check some properties, for example if he is able to access or his legal permit has expired. These are the **rules**. Into the `entities/authorization_rules/` folder there are the files which handles the rules. </br>
+
+For each of these properties you can create a new class that extends the `Rule` base class (as, in the example, `CheckIfIsActiveRule` and `CheckIfIsTesterRule`) and define the `rule()` method, as in the example below:
+```php
+// (for example) The bot can be used only from users activated from the admin
+class CheckIfIsActiveRule extends Rule {
+
+  public function rule() {
+    if ($this->getUser()->isActive()) {
+      return true;
+    }
+    return false;
+  }
+
+}
+```
+
+Then you have to add the instances of the classes you've created into the `private function rulesToAdd()`, into the `UserAuthorization` class:
+```php
+private function rulesToAdd() {
+  $this->addRule(new CheckIfIsActiveRule($this->getUser(), $this->getSystemConfig()));
+  $this->addRule(new CheckIfIsTesterRule($this->getUser(), $this->getSystemConfig()));
+}
+```
+
+The `UserAuthorization` class method `verifyAuthorization()` will execute the `rule()` method of every instance you have added into `rulesToAdd()` method. So you can verify all the necessary rules and also get specific error messages for each one, in case some of the rules doesn't pass the check. </br>
 
 <!-- TOC --><a name="about-processes"></a>
-## About processes
+### About processes
 An exhaustive description of processes is into [control/processes.md](control/PROCESSES.md) file. </br>

@@ -25,7 +25,7 @@ class TelegramBotApiCustom extends Api {
   /**
    * Constructor of class Telegram\Bot\Api (from library)
    */
-  public function __construct(string $token = null, bool $async = false, HttpClientInterface $httpClientHandler = null, string $baseBotUrl = null) {
+  public function __construct(?string $token = null, bool $async = false, ?HttpClientInterface $httpClientHandler = null, ?string $baseBotUrl = null) {
     parent::__construct($token, $async, $httpClientHandler, $baseBotUrl);
 
     $_Chat = $this->getChatWithChecks();

@@ -6,4 +6,6 @@ require_once __DIR__ . "/control/processes_autoloader.php";
 
 /** file to do some tests */
 
+echo "Hello, world";
+
 ?>

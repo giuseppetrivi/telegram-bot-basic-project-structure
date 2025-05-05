@@ -1,23 +1,23 @@
 {
-  "testing": {
-    "TELEGRAM_BOT_API_TOKEN": "",
-    "OPEN_ACCASS_TO_BOT": 1,
+  "production": {
+    "TELEGRAM_BOT_API_TOKEN": "<YOUR-TELEGRAM-BOT-API-TOKEN>",
+    "OPEN_ACCESS_TO_BOT": 0,
     "DATABASE_INFO": {
-      "username": "",
-      "password": "",
-      "db_name": "",
-      "db_host": ""
+      "username": "<YOUR-DATABASE-USERNAME>",
+      "password": "<YOUR-DATABASE-PASSWORD>",
+      "db_name": "<YOUR-DATABASE-NAME>",
+      "db_host": "<YOUR-DATABASE-HOST>"
     }
   },
 
-  "production": {
-    "TELEGRAM_BOT_API_TOKEN": "",
-    "OPEN_ACCASS_TO_BOT": 1,
+  "testing": {
+    "TELEGRAM_BOT_API_TOKEN": "<YOUR-TELEGRAM-BOT-API-TOKEN>",
+    "OPEN_ACCESS_TO_BOT": 0,
     "DATABASE_INFO": {
-      "username": "",
-      "password": "",
-      "db_name": "",
-      "db_host": ""
+      "username": "<YOUR-DATABASE-USERNAME>",
+      "password": "<YOUR-DATABASE-PASSWORD>",
+      "db_name": "<YOUR-DATABASE-NAME>",
+      "db_host": "<YOUR-DATABASE-HOST>"
     }
-  }
+  }  
 }

@@ -22,7 +22,7 @@ spl_autoload_register(function($class) {
     $file_path = $file->getPathname();
     $file_name = $file->getFilename();
     if (is_file($file_path) && $file_name == $relative_classname.".php") {
-      echo "Require ---> " . $file_path . "<br>";
+      // echo "Require ---> " . $file_path . "<br>";  /* to see the require order of the autoloader */
       require_once $file_path;
     }
   }

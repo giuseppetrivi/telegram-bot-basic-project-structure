@@ -12,10 +12,17 @@ class Main extends AbstractProcess {
   ];
 
   protected function startProcedure() {
-    $this->_Bot->sendMessage([
-      'text' => "==> This is an example",
-      'reply_markup' => Keyboards::getMainMenu()
-    ]);
+    echo "mannaggia";
+    try {
+      echo "daje";
+      $this->_Bot->sendMessage([
+        'text' => "==> This is an example",
+        'reply_markup' => Keyboards::getMainMenu()
+      ]);
+    } catch (\Telegram\Bot\Exceptions\TelegramResponseException $e) {
+        echo $e->getMessage();
+        var_dump($e->getResponseData()); // Se disponibile
+    }
   }
 
 

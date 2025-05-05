@@ -20,7 +20,7 @@ This is a UML diagram that explain the structure of the classes:
 
 - [Folder structure](#folder-structure)
 - [Code style](#code-style)
-- [Libraries installed](#libraries-installed)
+- [Installed libraries](#installed-libraries)
   - [Class `TelegramBotApiCustom`](#class-telegrambotapicustom)
 - [List of all example classes or editable classes](#list-of-all-example-classes-or-editable-classes)
 - [Autoloaders](#autoloaders)
@@ -61,8 +61,8 @@ The coding style followed in the classes of this project (except for the externa
 | **Method of function**      | camelCaseFunction   |
 | **Constants**               | CONSTANT_NAME       |
 
-<!-- TOC --><a name="libraries-installed"></a>
-### Libraries installed
+<!-- TOC --><a name="installed-libraries"></a>
+### Installed libraries
 In this example base project I installed two libraries:
 - [`telegram-bot-sdk`](https://github.com/irazasyed/telegram-bot-sdk): an unofficial Telegram Bot API SDK
 - [`meekrodb`](https://github.com/SergeyTsalkov/meekrodb): a simple library to handle database MySQL calls
